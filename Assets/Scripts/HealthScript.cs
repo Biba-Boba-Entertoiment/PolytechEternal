@@ -9,18 +9,20 @@ public class HealthScript : MonoBehaviour
     private AudioManager audioManager;
     private Animator anim;
     private EnemyMove enemyMove;
-    private int coins;
-    CoinsManager coinsManager;
-    public GameObject Coin;
+    //private int coins;
+    //public CoinsManager coinsManager;
+    //[SerializeField]
     
     [HideInInspector] public bool characterDied;
     public bool isPlayer;
-    public bool isPlayerDead;
+    [HideInInspector] public bool isPlayerDead;
+    [HideInInspector] public bool isEnemyDead;
     void Awake() 
     {
         anim = GetComponent<Animator>();
         enemyMove = GetComponent<EnemyMove>();
         audioManager = GetComponent<AudioManager>();
+        //coinsManager = GetComponent<CoinsManager>();
         
     }
     void Start() 
@@ -34,13 +36,14 @@ public class HealthScript : MonoBehaviour
             return;
         
         currentHealth -= attackDamage; // отнимаем от текущего хп входящий урон
-        Debug.Log("HP = " + currentHealth);
+        //Debug.Log("HP = " + currentHealth);
         anim.SetTrigger("Hurt"); // триггерим анимацию получения урона
 
         if(currentHealth <= 0) // если хп меньше или равно нулю
         {
             //characterDied = true;
-            //anim.SetBool("IsDead", true);
+            audioManager.PlayDeathSound();
+            anim.SetBool("IsDead", true);
             //Die(); // смэрть
   
             if (isPlayer)
@@ -52,6 +55,7 @@ public class HealthScript : MonoBehaviour
             else
             {
                 //Debug.Log("Enemy Died!");
+                isEnemyDead = true;
                 GameController.score += 10; // прибавляем игроку по 10 очков за каждого убитого
                 EnemyDie();
             }
@@ -70,7 +74,6 @@ public class HealthScript : MonoBehaviour
     
     void PlayerDie()
     {
-        audioManager.PlayDeathSound();
         GetComponent<PlayerController>().enabled = false;
         Camera.main.GetComponent<CameraFollow2>().enabled = false;
         this.enabled = false; // выключаем его
@@ -78,18 +81,12 @@ public class HealthScript : MonoBehaviour
     }
     void EnemyDie()
     {      
-        audioManager.PlayDeathSound();
+        
         GetComponent<Rigidbody>().useGravity = false; 
         GetComponent<EnemyMove>().enabled = false;
         GetComponent<Collider>().enabled = false;  
+        GetComponent<CoinSpawner>().SpawnCoin();
         Destroy (this.gameObject, 5);
-        
-        //int randomValue = Random.Range(0, 3);
-        if (true)
-        {
-            Instantiate(Coin, transform.position, Quaternion.identity);
-        }
-
     }
 
     IEnumerator Coroutine()

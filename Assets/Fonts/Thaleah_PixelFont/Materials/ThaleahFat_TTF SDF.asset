@@ -2363,7 +2363,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: ThaleahFat_TTF SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: BEVEL_ON UNDERLAY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -2404,7 +2404,7 @@ Material:
     - _BumpOutline: 0
     - _ColorMask: 15
     - _Diffuse: 0.127
-    - _FaceDilate: 0
+    - _FaceDilate: 0.04
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0
@@ -2418,12 +2418,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.89
+    - _OutlineWidth: 0.439
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10.96
-    - _ScaleRatioA: 0.6187162
-    - _ScaleRatioB: 0.27083334
-    - _ScaleRatioC: 0.27083334
+    - _ScaleRatioA: 0.6666667
+    - _ScaleRatioB: 0.25750002
+    - _ScaleRatioC: 0.25750002
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 1
@@ -2437,7 +2437,7 @@ Material:
     - _TextureHeight: 512
     - _TextureWidth: 512
     - _UnderlayDilate: 1
-    - _UnderlayOffsetX: -1
+    - _UnderlayOffsetX: 1
     - _UnderlayOffsetY: -1
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0

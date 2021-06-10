@@ -78,25 +78,33 @@ public class DialogueManager : MonoBehaviour
     {
         boxAnim.SetBool("boxOpen", false);
     }
-
+    public void BuyOneCigarette()
+    {
+        if(coinsManager.coins >= 2)
+        {
+            Debug.Log("сигаретка далась");       
+            playerAttack.GetOneCigarette();
+            coinsManager.SpendCoins(2);
+        }
+    }
     public void BuyCigarettePack()
     {
-        //if(coinsManager.coins > 10)
-        //{
+        if(coinsManager.coins >= 30)
+        {
             Debug.Log("сигареті дались");       
-            playerAttack.GetCigarettes();
-            coinsManager.SpendCoins(10);
-      // }
+            playerAttack.GetCigarettePack();
+            coinsManager.SpendCoins(30);
+        }
     }
         
     public void BuyEnergyDrink()
     {
-       // if(coinsManager.coins > 15)
-       // {
+        if(coinsManager.coins >= 15)
+        {
             Debug.Log("мммм хпшечка");
             healthScript.GetHealthPoints();
             coinsManager.SpendCoins(15);
-       // }
+        }
         
     }
 }

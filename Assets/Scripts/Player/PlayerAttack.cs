@@ -16,7 +16,6 @@ public class PlayerAttack : MonoBehaviour
     private float time;
     public int numbersOfCigarette = 3;
     public TMP_Text numbersOfCigaretteText;
-    //public Text numbersOfCigaretteText;
     private AudioManager audioManager;
     private HealthScript healthScript;
     public float attackRange;   
@@ -54,11 +53,11 @@ public class PlayerAttack : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Z))
             {
-            if(( time += Time.deltaTime) > 1.0f)
-            {
-                time = 0.01f;
-                Hit();
-            }
+                if(( time += Time.deltaTime) > 1.0f)
+                {
+                    time = 0.01f;
+                    Hit();
+                }
                 
             }
         }
@@ -83,10 +82,15 @@ public class PlayerAttack : MonoBehaviour
         
     }
 
-    public void GetCigarettes()
+    public void GetOneCigarette()
+    {        
+        numbersOfCigarette ++;
+    }
+
+    public void GetCigarettePack()
     {
         if(numbersOfCigarette < 20)
-            numbersOfCigarette += 3;
+            numbersOfCigarette += 20;
     }
 
     public void Hit()

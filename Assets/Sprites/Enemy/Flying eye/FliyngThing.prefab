@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 5134195757721047506}
   - component: {fileID: -4163948814277124643}
   - component: {fileID: -6647947178105521557}
+  - component: {fileID: 332783333}
   m_Layer: 9
   m_Name: FliyngThing
   m_TagString: Enemy
@@ -218,10 +219,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
-  coin: {fileID: 4182972915511598857, guid: 3625e82e5af48e649a71582f983c4c4e, type: 3}
   characterDied: 0
   isPlayer: 0
   isPlayerDead: 0
+  isEnemyDead: 0
 --- !u!114 &2045689431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,13 +452,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepDelay: 0.7
-  stepSource: {fileID: 3981466768275836862}
   isPlayer: 0
-  jumpSource: {fileID: 0}
-  hitSource: {fileID: 5134195757721047506}
-  projectileSorce: {fileID: 0}
-  deathSource: {fileID: -6647947178105521557}
-  winSource: {fileID: 0}
+  stepClip: {fileID: 8300000, guid: f706d08c77bba405f9ca4b00195ad23e, type: 3}
+  jumpClip: {fileID: 0}
+  hitClip: {fileID: 8300000, guid: 045c7712cc40d4cd88a8e9a9aa3dda78, type: 3}
+  projectileClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: f571fd369d8d143ff85ba68229363559, type: 3}
+  winClip: {fileID: 0}
 --- !u!82 &-6647947178105521557
 AudioSource:
   m_ObjectHideFlags: 0
@@ -554,3 +555,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &332783333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773634884667261639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1987a61e17931ed4684e2c23b753e4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Coin: {fileID: 4182972915511598857, guid: 3625e82e5af48e649a71582f983c4c4e, type: 3}

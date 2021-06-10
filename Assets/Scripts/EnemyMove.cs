@@ -41,7 +41,7 @@ public class EnemyMove : MonoBehaviour
         // находит местоположение объекта с тэгом "Player"
         //playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         //if(GameObject.FindGameObjectsWithTag("Player").Length != 0)
-            player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         //playerHealthScript = player.GetComponent<HealthScript>();
         // берем компоненты
         enemySR = GetComponent<SpriteRenderer>();
@@ -67,7 +67,7 @@ public class EnemyMove : MonoBehaviour
             this.enabled = false;
  
         }
-            Attack();
+        else Attack();
     }
 
     // не спрашивай почему одно в апдейт, а другое в фиксед апдейт, так надо
@@ -78,7 +78,7 @@ public class EnemyMove : MonoBehaviour
             //enemyAnim.SetBool("Attack", false);
             this.enabled = false;
         }
-        FollowTarget();
+        else FollowTarget();
     }
 
     void FollowTarget()

@@ -5,20 +5,23 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public float stepDelay;
+    public bool isPlayer;
+    private AudioSource audioSource;
     //public AudioClip step;
     private Rigidbody rb;
-    public AudioSource stepSource;
-    public bool isPlayer;
-    public AudioSource jumpSource;
-    public AudioSource hitSource;
-    public AudioSource projectileSorce;
-    public AudioSource deathSource;
-    public AudioSource winSource;
+    
+    public AudioClip stepClip;
+    public AudioClip jumpClip;
+    public AudioClip hitClip;
+    public AudioClip projectileClip;
+    public AudioClip deathClip;
+    public AudioClip winClip;
     private float timer = 0;
     void Start()
     {
-        //audioSource = GetComponent<AudioSource>();
+        //audioClipAudioClip = GetComponent<AudioClip>();
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,16 +34,16 @@ public class AudioManager : MonoBehaviour
             if(!Input.GetKey(KeyCode.Space))
                 if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) ||Input.GetKey(KeyCode.S))
                 {
-                    stepSource.PlayOneShot(stepSource.clip);
+                    audioSource.PlayOneShot(stepClip);
                     
                 }
             if(Input.GetKeyDown(KeyCode.Space)) 
-                jumpSource.PlayOneShot(jumpSource.clip);
+                audioSource.PlayOneShot(jumpClip);
             timer = 0.01f;
         }
         else if (rb.velocity != Vector3.zero)
         {
-            stepSource.PlayOneShot(stepSource.clip);
+            audioSource.PlayOneShot(stepClip);
             timer = 0.01f;
         }
     }
@@ -49,21 +52,21 @@ public class AudioManager : MonoBehaviour
      
     public void PlayHitSound()
     {
-         hitSource.PlayOneShot(hitSource.clip);
+        audioSource.PlayOneShot(hitClip);
     }
     
     public void PlayProjectileSound()
     {
-        projectileSorce.PlayOneShot(projectileSorce.clip);
+        audioSource.PlayOneShot(projectileClip);
     }
 
     public void PlayDeathSound()
     {
-        deathSource.PlayOneShot(deathSource.clip);
+        audioSource.PlayOneShot(deathClip);
     }
 
     public void PlayWinSound()
     {
-        winSource.PlayOneShot(winSource.clip);
+        audioSource.PlayOneShot(winClip);
     }
 }
