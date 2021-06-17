@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     public Transform SpawnPos;
     public GameObject Enemy;
     public int maxCount = 0;
-    private int currentCount;
+    public int currentCount;
     public float timer;
     public float cd;
     // private Collider enemyCollider;

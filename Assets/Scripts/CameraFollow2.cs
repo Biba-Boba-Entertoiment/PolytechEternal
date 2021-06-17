@@ -8,6 +8,8 @@ public class CameraFollow2 : MonoBehaviour
 
      public float xSmooth = 8f;
      public float ySmooth = 8f;
+     public Vector2 maxMaxXY;
+     public Vector2 minMinXY;
      public Vector2 maxXY;
      public Vector2 minXY;
 
@@ -41,9 +43,21 @@ public class CameraFollow2 : MonoBehaviour
             targetX = Mathf.Lerp(transform.position.x, m_Player.position.x, xSmooth * Time.deltaTime);
         }
 
-        targetX = Mathf.Clamp(targetX, minXY.x, maxXY.x);
+        if(targetX < maxXY.x)
+        {
+        targetX = Mathf.Clamp(targetX, minMinXY.x, maxMaxXY.x);
 
         transform.position = new Vector3(targetX, transform.position.y, transform.position.z);
+        }
+        else {
+            GetComponent<Spawner>().enabled = false;
+            //Continue();
+        }
 
+     }
+     public void Continue()
+     {
+         maxXY += maxXY;
+         GetComponent<Spawner>().enabled = true;
      }
 }
