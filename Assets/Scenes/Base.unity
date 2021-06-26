@@ -1053,9 +1053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e9c1272612eea47813184ed54df701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelButtons:
-  - {fileID: 1850767888}
-  - {fileID: 1850767888}
 --- !u!4 &615258630
 Transform:
   m_ObjectHideFlags: 0
@@ -1589,6 +1586,8 @@ GameObject:
   m_Component:
   - component: {fileID: 899156888}
   - component: {fileID: 899156889}
+  - component: {fileID: 899156890}
+  - component: {fileID: 899156891}
   m_Layer: 0
   m_Name: iluha
   m_TagString: Untagged
@@ -1604,7 +1603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899156887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.97, y: -2.5, z: 4.53}
+  m_LocalPosition: {x: 12.81, y: -2.5, z: 4.53}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 1363730149}
@@ -1660,6 +1659,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &899156890
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899156887}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.42, y: 0.91, z: 3.52}
+  m_Center: {x: 0, y: 0, z: 0.00000035762787}
+--- !u!114 &899156891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899156887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d01a33d82418984eb56d38131e49b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startAnim: {fileID: 0}
+  dm: {fileID: 0}
 --- !u!1 &904980715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,6 +1783,7 @@ GameObject:
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
   - component: {fileID: 963194232}
+  - component: {fileID: 963194233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1823,7 +1850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 7.35, z: -9.73}
+  m_LocalPosition: {x: 53.19, y: 7.35, z: -9.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1361527744}
@@ -1852,7 +1879,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aef829fa1e8e7e44bda109b4591eed2, type: 3}
   m_Name: 
@@ -1860,6 +1887,8 @@ MonoBehaviour:
   xMargin: 0
   xSmooth: 8
   ySmooth: 8
+  maxMaxXY: {x: 0, y: 0}
+  minMinXY: {x: 0, y: 0}
   maxXY: {x: 54, y: 0}
   minXY: {x: 0, y: 0}
 --- !u!114 &963194231
@@ -1890,8 +1919,26 @@ MonoBehaviour:
   SpawnPos: {fileID: 1361527744}
   Enemy: {fileID: 0}
   maxCount: 0
+  currentCount: 0
   timer: 0
   cd: 0
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9278479d352462a41b29e89e101ef6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xMargin: 1
+  xSmooth: 8
+  ySmooth: 8
+  maxXY: {x: 55, y: 0}
+  minXY: {x: 0, y: 0}
 --- !u!1 &1021043734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,11 +2267,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreLabel: {fileID: 1710382791}
+  levelScoreLabel: {fileID: 0}
   gameOverPanel: {fileID: 1433388259}
+  winPanel: {fileID: 0}
   healthBar: {fileID: 81079277}
   playerAudioManager: {fileID: 0}
   healthScript: {fileID: 1694846629}
+  continueButton: {fileID: 0}
   timer: 0
+  maxScore: 0
 --- !u!4 &1148915586
 Transform:
   m_ObjectHideFlags: 0
@@ -2800,6 +2851,7 @@ MonoBehaviour:
   SpawnPos: {fileID: 0}
   Enemy: {fileID: 0}
   maxCount: 0
+  currentCount: 0
   timer: 0
   cd: 0
 --- !u!1 &1363730148
@@ -3098,7 +3150,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -3504,7 +3556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694846622}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 16.21, y: 0.7, z: -6.57}
+  m_LocalPosition: {x: 25.52, y: 0.7, z: -6.57}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children:
   - {fileID: 19713075}
@@ -3549,6 +3601,7 @@ MonoBehaviour:
   characterDied: 0
   isPlayer: 1
   isPlayerDead: 0
+  isEnemyDead: 0
 --- !u!114 &1694846630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3562,13 +3615,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepDelay: 0.04
-  stepSource: {fileID: 1694846632}
   isPlayer: 0
-  jumpSource: {fileID: 1694846633}
-  hitSource: {fileID: 0}
-  projectileSorce: {fileID: 0}
-  deathSource: {fileID: 0}
-  winSource: {fileID: 0}
+  stepClip: {fileID: 0}
+  jumpClip: {fileID: 0}
+  hitClip: {fileID: 0}
+  projectileClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  winClip: {fileID: 0}
 --- !u!114 &1694846631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4361,7 +4414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062146279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.13, y: -2.55, z: 4.55}
+  m_LocalPosition: {x: 17.04, y: -2.55, z: 4.55}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 1363730149}
